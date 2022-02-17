@@ -2,11 +2,11 @@
     ViewData["Title"] = "Home";
 }
 
-@model List<Book>
+@model BooksViewModel
 
 <h1>Welcome to the Book Store</h1>
 
-@foreach (Book b in Model)
+@foreach (Book b in Model.Books)
  {
     <h3>@b.Title</h3>
 
@@ -22,3 +22,5 @@
 
     <br />
  }
+
+<div page-model="@Model.PageInfo" page-action="Index"></div>
