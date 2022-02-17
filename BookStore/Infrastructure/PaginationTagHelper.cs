@@ -41,6 +41,7 @@ namespace BookStore.Infrastructure
 
                 tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
                 tb.InnerHtml.Append(i.ToString());
+                tb.InnerHtml.Append("\t");
 
                 final.InnerHtml.AppendHtml(tb);
             }
