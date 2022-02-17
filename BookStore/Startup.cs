@@ -33,7 +33,7 @@ namespace BookStore
                 options.UseSqlite(Configuration["ConnectionStrings:BookStoreDBConnection"]);
             });
 
-            //services.AddScoped<IWaterProjectRepository, EFWaterProjectRepository>();
+            services.AddScoped<IBookStoreRepository, EFBookStoreRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

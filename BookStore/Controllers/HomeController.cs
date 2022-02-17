@@ -11,13 +11,16 @@ namespace BookStore.Controllers
 {
     public class HomeController : Controller
     {
-        private BookstoreContext context { get; set; }
+        private IBookStoreRepository repo;
 
-        public HomeController(BookstoreContext temp) => context = temp;
+        public HomeController (IBookStoreRepository temp)
+        {
+            repo = temp;
+        }
 
         public IActionResult Index()
         {
-            var books = context.Books.ToList();
+            var books = repo.Books.ToList();
 
             return View(books);
         }
