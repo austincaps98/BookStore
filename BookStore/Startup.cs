@@ -53,11 +53,16 @@ namespace BookStore
             {
                 endpoints.MapControllerRoute("typepage",
                     "{bookCategory}/Page{pageNum}",
-                    new { Conroller = "Home", action = "Index" });
+                    new { Controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute("Paging",
                     "Page{pageNum}",
-                    new { Controller = "Home", action = "Index" });
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
+                endpoints.MapControllerRoute("type",
+                    "{bookCategory}",
+                    new {Controller="Home", action="Index", pageNum = 1 });
+
 
                 endpoints.MapDefaultControllerRoute();
             });
