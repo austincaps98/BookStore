@@ -22,8 +22,8 @@
             <tr>
                 <td>@i.Book.Title</td>
                 <td>@i.Quantity</td>
-                <td>@i.Book.Price</td>
-                <td>@(i.Quantity * i.Book.Price)</td>
+                <td>$@i.Book.Price</td>
+                <td>$@(i.Quantity * i.Book.Price)</td>
             </tr>
         }
 
@@ -32,7 +32,7 @@
     <tfoot>
         <tr>
             <td colspan="3" class="font-weight-bold">Total:</td>
-            <td class="font-weight-bold">@Model.cart.CalculateTotal().ToString("c")</td>
+            <td class="font-weight-bold">$@Model.cart.CalculateTotal()</td>
         </tr>
     </tfoot>
 
