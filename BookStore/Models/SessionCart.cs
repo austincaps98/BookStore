@@ -14,6 +14,8 @@ namespace BookStore.Models
 
             SessionCart cart = session?.GetJson<SessionCart>("Cart") ?? new SessionCart();
 
+            cart.Session = session;
+
             return cart;
         }
 

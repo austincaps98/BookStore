@@ -24,6 +24,14 @@
                 <td>@i.Quantity</td>
                 <td>$@i.Book.Price</td>
                 <td>$@(i.Quantity * i.Book.Price)</td>
+
+                <td class="text-center">
+                    <form method="post" asp-page-handler="Remove">
+                        <input type="hidden" name="bookId" value="@i.Book.BookId" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                    </form>
+                </td>
             </tr>
         }
 
@@ -32,7 +40,7 @@
     <tfoot>
         <tr>
             <td colspan="3" class="font-weight-bold">Total:</td>
-            <td class="font-weight-bold">$@Model.cart.CalculateTotal()</td>
+            <td class="font-weight-bold">@Model.cart.CalculateTotal().ToString("c")</td>
         </tr>
     </tfoot>
 
