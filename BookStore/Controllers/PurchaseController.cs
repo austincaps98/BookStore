@@ -40,7 +40,7 @@ namespace BookStore.Controllers
                 repo.SavePurchase(purchase);
                 cart.ClearCart();
 
-                return View();
+                return RedirectToPage("/PurchaseCompleted");
             }
             else
             {
