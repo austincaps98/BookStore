@@ -8,11 +8,16 @@
 </head>
 <body>
     <div class="bg-dark text-white p-2">
-        <span class="navbar-brand m-lg-2">
+        <div class="navbar-brand m-lg-2 col-11">
             <a class="text-light" asp-controller="Home" asp-action="Index" asp-route-pageNum="1">
                 Welcome to the Bookstore
             </a>
-        </span>
+        </div>
+        <div class="float-right">
+            <a asp-page="/AddBook">
+                <img src="~/lib/img/shopping-cart.png" width="45" />
+            </a>
+        </div>
     </div>
 
     <div class="row m-1 p-1">
