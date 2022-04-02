@@ -15,17 +15,15 @@
 
                 <div class="col">
                     <span class="navbar-brand m-lg-2 col-11">
-                        <a class="text-light" asp-controller="Home" asp-action="Index" asp-route-pageNum="1">
-                            Welcome to the Bookstore
-                        </a>
+                        Closer To Christ                    
                     </span>
                 </div>
 
                 <div class="col-4 text-right">
                     <a class="btn btn-primary float-end m-1 p-1" asp-controller="Account" asp-action="Login">Sign In</a>
-                    <a asp-page="/AddBook">
+                    @*<a asp-page="/AddBook">
                         <img class="float-end" src="~/lib/img/shopping-cart.png" width="45" />
-                    </a>
+                    </a>*@
                 </div>
 
             </div>
@@ -35,11 +33,11 @@
 
     <div class="row m-1 p-1">
 
-        <div id="types" class="col-3">
+        @*<div id="types" class="col-3">
             <vc:types></vc:types>
-        </div>
+        </div>*@
 
-        <div class="col-9">
+        <div>
             <div>
                 @RenderBody()
             </div>

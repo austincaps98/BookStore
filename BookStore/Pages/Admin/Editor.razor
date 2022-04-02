@@ -16,7 +16,7 @@
     <DataAnnotationsValidator></DataAnnotationsValidator>
 
     <div class="form-group">
-        <label>Book ID</label>
+        <label>Post ID</label>
         <input class="form-control" disabled value="@b.BookId" />
     </div>
 
@@ -27,13 +27,13 @@
     </div>
 
     <div class="form-group">
-        <label>Author:</label>
+        <label>Quote:</label>
         <ValidationMessage For="@(() => b.Author)"></ValidationMessage>
         <InputText class="form-control" @bind-Value="b.Author"></InputText>
     </div>
 
     <div class="form-group">
-        <label>Publisher:</label>
+        <label>Thoughts:</label>
         <ValidationMessage For="@(() => b.Publisher)"></ValidationMessage>
         <InputText class="form-control" @bind-Value="b.Publisher"></InputText>
     </div>
@@ -45,13 +45,13 @@
     </div>
 
     <div class="form-group">
-        <label>Classification:</label>
+        <label>Date:</label>
         <ValidationMessage For="@(() => b.Classification)"></ValidationMessage>
         <InputText class="form-control" @bind-Value="b.Classification"></InputText>
     </div>
 
     <div class="form-group">
-        <label>Category:</label>
+        <label>Always put "Marriage":</label>
         <ValidationMessage For="@(() => b.Category)"></ValidationMessage>
         <InputText class="form-control" @bind-Value="b.Category"></InputText>
     </div>

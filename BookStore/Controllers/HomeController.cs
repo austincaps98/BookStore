@@ -21,22 +21,22 @@ namespace BookStore.Controllers
 
         public IActionResult Index(string bookCategory, int pageNum = 1)
         {
-            int pageSize = 4;
+            int pageSize = 20;
 
             var x = new BooksViewModel
             {
                 Books = repo.Books
-                .Where(b => b.Category == bookCategory || bookCategory == null)
-                .OrderBy(b => b.Title)
+                .Where(b => b.Category == "Marriage")
+                .OrderBy(b => b.Classification)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
                     TotalNumBooks =
-                        (bookCategory == null
+                        (bookCategory == "Marriage"
                         ? repo.Books.Count()
-                        : repo.Books.Where(x => x.Category == bookCategory).Count()),
+                        : repo.Books.Where(x => x.Category == "Marriage").Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }
