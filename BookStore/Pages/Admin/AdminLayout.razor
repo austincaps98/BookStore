@@ -1,13 +1,15 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="bg-info text-white p-2">
+<div class="bg-dark text-white p-2">
 
     <div class="container-fluid">
 
         <div class="row">
 
             <div class="col">
-                <span class="navbar-brand m-lg-2">Bookstore Administration</span>
+                <span class="navbar-brand m-lg-2">
+                    <a class="text-light" style="text-decoration:none" href="/">Digital Journal – Admin Page</a>
+                </span>
             </div>
 
             <div class="col-2 text-right">
@@ -23,15 +25,15 @@
 
     <div class="row p-2">
 
-        <div class="col-3">
+        @*<div class="col-2">
 
             <div class="d-grid gap-2">
-                <NavLink class="btn btn-outline-primary" href="/admin/books"
-                         ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Books</NavLink>
+                <NavLink class="btn btn-primary" href="/admin/books"
+                         ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Entries</NavLink>
                 <NavLink class="btn btn-outline-primary" href="/admin/purchases"
                          ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Purchases</NavLink>
             </div>
-        </div>
+        </div>*@
 
         <div class="col">
             @Body

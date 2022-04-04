@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link rel="icon" type="image/x-icon" href="~/lib/img/lainIcon.png" />
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -14,16 +15,17 @@
             <div class="row">
 
                 <div class="col">
-                    <span class="navbar-brand m-lg-2 col-11">
-                        Closer To Christ                    
-                    </span>
+                    <nav class="navbar navbar-brand sticky-top m-lg-2 col-11">
+                            Closer To Christ
+                    </nav>
                 </div>
 
-                <div class="col-4 text-right">
-                    <a class="btn btn-primary float-end m-1 p-1" asp-controller="Account" asp-action="Login">Sign In</a>
+                <div class="col text-right">
+                    <a class="btn float-end m-2" style="background-color:lightcoral; color:white" href="/admin">Log In</a>
+                    <a class="btn float-end m-2" style="background-color:lightcoral; color:white" href="/admin/books/create">New Entry</a>
                     @*<a asp-page="/AddBook">
-                        <img class="float-end" src="~/lib/img/shopping-cart.png" width="45" />
-                    </a>*@
+                <img class="float-end" src="~/lib/img/shopping-cart.png" width="45" />
+        </a>*@
                 </div>
 
             </div>
@@ -31,20 +33,30 @@
         </div>
     </div>
 
-    <div class="row m-1 p-1">
+    <section class="text-center" style="background-color:whitesmoke">
+        <img class="m-2 p-2" height="200" src="~/lib/img/southCarolina.jpeg" />
+        <img class="m-2 p-2" height="200" src="~/lib/img/laytonTemple.jpg" />
+        <img class="m-2 p-2" height="200" src="~/lib/img/lainLowRes.jpg" />
+        <img class="m-2 p-2" height="200" src="~/lib/img/provoCity.jpg" />
+        <img class="m-2 p-2" height="200" src="~/lib/img/xela.jpg" />
+    </section>
 
-        @*<div id="types" class="col-3">
-            <vc:types></vc:types>
-        </div>*@
+    <section style="background-color:whitesmoke">
+        <div class="m-3 p-3">
 
-        <div>
+            @*<div id="types" class="col-3">
+                    <vc:types></vc:types>
+                </div>*@
+
             <div>
-                @RenderBody()
+                <div>
+                    @RenderBody()
+                </div>
             </div>
+
+
         </div>
-
-
-    </div>
+    </section>
 
 </body>
 </html>

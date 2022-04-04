@@ -1,6 +1,6 @@
 ﻿@page "/admin/books/edit/{id:long}"
 @page "/admin/books/create"
-@inherits OwningComponentBase<IBookStoreRepository>
+@inherits OwningComponentBase<IBookStoreRepository> 
 
 <style>
     div.validation-message {
@@ -9,7 +9,7 @@
     }
 </style>
 
-<h3 class="bg-@ThemeColor text-white text-center p-1">@TitleText a Book</h3>
+<h3 class="bg-@ThemeColor text-white text-center p-1">@TitleText an Entry</h3>
 
 <EditForm Model="b" OnValidSubmit="SaveBook">
 
@@ -38,11 +38,7 @@
         <InputText class="form-control" @bind-Value="b.Publisher"></InputText>
     </div>
 
-    <div class="form-group">
-        <label>ISBN:</label>
-        <ValidationMessage For="@(() => b.Isbn)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="b.Isbn"></InputText>
-    </div>
+    
 
     <div class="form-group">
         <label>Date:</label>
@@ -51,21 +47,27 @@
     </div>
 
     <div class="form-group">
-        <label>Always put "Marriage":</label>
-        <ValidationMessage For="@(() => b.Category)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="b.Category"></InputText>
+            <label>Category:</label>
+            <ValidationMessage For="@(() => b.Category)"></ValidationMessage>
+            <InputText class="form-control" disabled @bind-Value="b.Category"></InputText>
     </div>
 
     <div class="form-group">
-        <label>Page Count:</label>
-        <ValidationMessage For="@(() => b.PageCount)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="b.PageCount"></InputNumber>
+                <label>ISBN:</label>
+                <ValidationMessage For="@(() => b.Isbn)"></ValidationMessage>
+                <InputText class="form-control" disabled @bind-Value="b.Isbn"></InputText>
+    </div>
+
+    <div class="form-group">
+            <label>Page Count:</label>
+            <ValidationMessage For="@(() => b.PageCount)"></ValidationMessage>
+            <InputNumber class="form-control" disabled @bind-Value="b.PageCount"></InputNumber>
     </div>
 
     <div class="form-group">
         <label>Price:</label>
         <ValidationMessage For="@(() => b.Price)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="b.Price"></InputNumber>
+        <InputNumber class="form-control" disabled @bind-Value="b.Price"></InputNumber>
     </div>
 
     <br />
@@ -76,6 +78,14 @@
 
 @code {
 
+    @*public string Category = "Marriage";
+
+    public string ISBN = "0";
+
+    public string PageCount = "0";
+
+    public string Price = "0";*@
+
     [Parameter]
     public long Id { get; set; } = 0;
 
@@ -83,7 +93,13 @@
 
     public string TitleText => Id == 0 ? "Create" : "Edit";
 
-    public Book b { get; set; } = new Book();
+    public Book b { get; set; } = new Book()
+    {
+        Category = "Marriage",
+        Isbn = "0",
+        PageCount = 0,
+        Price = 0
+    };
 
     public IBookStoreRepository repo => Service;
 

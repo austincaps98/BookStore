@@ -4,25 +4,33 @@
 @model Book 
 
 @if (Model.Category == "Marriage")
-{
-    <div class="card card-outline-primary m-1 p-1">
+ {
+<div class="card card-outline-primary m-2 p-1">
 
-        <div class="bg-light p-1">
-            <h3>@Model.Title</h3>
+    <div class="p-1 m-2" style="background-color:lightcoral">
+        <span class="badge m-1 p-1" style="background-color:white; color:lightcoral">
+            Date: @Model.Classification
+        </span>
 
-            <span class="badge bg-info text-dark" style="float:right">
-                Date: @Model.Classification
-            </span>
-        </div>
+        <h3 class="text-light">@Model.Title</h3>
+    </div>
 
-        <h6>Quote:</h6>
-        <h6>"@Model.Author"</h6>
-        <br />
+    <h5 class="p-1 m-2">Quote:</h5>
+    <p class="p-1 m-2">"@Model.Author"</p>
 
-        <p>@Model.Publisher</p>
+    <h5 class="p-1 m-2">Thoughts:</h5>
+    <p class="p-1 m-2">@Model.Publisher</p>
 
+    <form method="post" asp-page="/admin/books/edit/@Model.BookId">
 
-        @*<ul>
+        <span class="card-text">
+            <a type="submit" class="btn btn-sm float-end p-1 m-2" style="background-color:lightcoral; color:white"
+               href="/admin/books/details/@Model.BookId">Details</a>
+        </span>
+
+    </form>
+
+    @*<ul>
             <li>Author: @Model.Author</li>
             <li>Publisher: @Model.Publisher</li>
             <li>ISBN: @Model.Isbn</li>
@@ -31,7 +39,7 @@
             <li>Page Count: @Model.PageCount</li>
         </ul>*@
 
-        @*<form method="post" asp-page="/AddBook">
+    @*<form method="post" asp-page="/AddBook">
 
             <input type="hidden" asp-for="@Model.BookId" />
 
@@ -42,8 +50,8 @@
             </span>
 
         </form>*@
-    </div>
-}
+</div>
+ }
 
 
 

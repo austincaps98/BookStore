@@ -21,13 +21,13 @@ namespace BookStore.Controllers
 
         public IActionResult Index(string bookCategory, int pageNum = 1)
         {
-            int pageSize = 20;
+            int pageSize = 5;
 
             var x = new BooksViewModel
             {
                 Books = repo.Books
                 .Where(b => b.Category == "Marriage")
-                .OrderBy(b => b.Classification)
+                .OrderBy(b => b.Classification).ThenBy(b => b.Title) //Order by date first, then title
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 

@@ -36,11 +36,19 @@
     </tbody>
 
 </table>*@
+<div page-model="@Model.PageInfo" page-action="Index" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-classes-enabled="true"
+     class="btn-group pull-right m-1" style="color:lightcoral">
+</div>
 
-@foreach (Book b in Model.Books)
- {
-    <partial name="BookSummary" model="b" />
- }
+<div class="row">
+    <div class="center">
+        @foreach (Book b in Model.Books)
+         {
+            <partial name="BookSummary" model="b" />
+         }
+    </div>
+</div>
 
 <div page-model="@Model.PageInfo" page-action="Index" page-class="btn"
      page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-classes-enabled="true"

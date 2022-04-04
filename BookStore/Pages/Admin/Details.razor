@@ -1,5 +1,8 @@
 ﻿@page "/admin/books/details/{id:long}"
 
+@inherits OwningComponentBase<IBookStoreRepository>
+
+
 <h3 class="bg-info text-white text-center p-1">Details</h3>
 
 <table class="table table-sm table-bordered table-striped">
@@ -13,12 +16,13 @@
         <tr><th>Date:</th><td>@b.Classification</td></tr>
         <tr><th>Category:</th><td>@b.Category</td></tr>
         @*<tr><th>Page Count:</th><td>@b.PageCount</td></tr>
-        <tr><th>Price:</th><td>@b.Price</td></tr>*@
+            <tr><th>Price:</th><td>@b.Price</td></tr>*@
     </tbody>
 
 </table>
 
 <NavLink class="btn btn-warning" href="@EditUrl">Edit</NavLink>
+<button class="btn btn-danger btn text-white" @onclick="@(x => RemoveBook(b))">Delete</button>
 <NavLink class="btn btn-secondary" href="/admin/books">Back</NavLink>
 
 @code {
@@ -37,4 +41,32 @@
     }
 
     public string EditUrl => $"/admin/books/edit/{b.BookId}";
+
+    public IEnumerable<Book> BookData { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        BookData = await repo.Books
+            .Where(b => b.Category == "Marriage")
+            .ToListAsync();
+    }
+
+    public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
+    public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
+
+    public async Task RemoveBook(Book b)
+    {
+        repo.DeleteBook(b);
+        await UpdateData();
+        NavManager.NavigateTo("/admin/books");
+    }
+
+    [Inject]
+    public NavigationManager NavManager { get; set; }
+
 }
